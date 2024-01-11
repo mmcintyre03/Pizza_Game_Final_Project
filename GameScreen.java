@@ -12,7 +12,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+//This method contains the functionality for the Game screen. 
+
 public class GameScreen extends JFrame {
+  //Creating all of the buttons and text for the screen 
   JTextField recipe;
   JButton olive = new JButton();
   JButton anchovie = new JButton();
@@ -23,12 +26,14 @@ public class GameScreen extends JFrame {
   JTextArea nameInput = new JTextArea();
   JLabel name = new JLabel("Enter Name Here --->"); 
   JButton recipeButton;
+  //Creating the variables for the timer
   int time = 10;
   Timer timer = null;
   int delay = 1000;
   JLabel timerLabel = new JLabel("00:10");
   JButton stopButton = new JButton("DONE");
   int remainingTime = 10;
+  //Creating the images to add to the top of the pizza
   private JLabel olivesLabel = new JLabel();;
   private JLabel anchovieLabel = new JLabel();;
   private JLabel baconLabel = new JLabel();;
@@ -43,6 +48,7 @@ public class GameScreen extends JFrame {
   boolean mushroomSelected = false;
   boolean oliveSelected = false;
 
+  //This method loads the background image and sets the buttons and text fields to be in the correct spot
   public GameScreen() throws IOException {
     setLayout(null);
 
@@ -65,7 +71,7 @@ public class GameScreen extends JFrame {
     // Set layout to null for manual positioning
     backgroundPanel.setLayout(null);
 
-    /* SETTING UP BUTTONS */
+    /* Setting the buttons and the correct locations */
     recipeButton = new JButton("Get Recipe!");
     Dimension buttonSize = new Dimension(150, 95);
     recipeButton.setSize(buttonSize);
@@ -182,7 +188,7 @@ public class GameScreen extends JFrame {
       }
     });
 
-    /* BUTTON FUNCTIONALITY */
+    /* BUTTON FUNCTIONALITY FOR THE TOPPINGS, REPICIE, AND TIMER */
     recipeButton.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
@@ -435,6 +441,7 @@ public class GameScreen extends JFrame {
     return String.format("%02d:%02d", minutes, seconds);
   }
 
+  //This method resets the game and clears everything 
   private void resetGame() {
     resetTimer();
     expectedToppings.clear();
@@ -447,12 +454,14 @@ public class GameScreen extends JFrame {
     baconSelected = false;
     anchovieSelected = false;
   }
-
+  
+  //This method resets the timer to 10 seconds
   private void resetTimer() {
     remainingTime = 10;
     timerLabel.setText("00:10");
   }
 
+  //This method clears all of the toppings off the pizza 
   private void resetToppingImages() {
     anchovieLabel.setVisible(false);
     baconLabel.setVisible(false);
@@ -461,6 +470,7 @@ public class GameScreen extends JFrame {
     olivesLabel.setVisible(false);
   }
 
+  
   public static void main(String[] args) throws IOException {
     GameScreen gameScreen = new GameScreen();
     gameScreen.setVisible(true);
