@@ -9,9 +9,11 @@ import java.io.IOException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+//This class creates the Info screen that shows the player how to play the game and shows the start button to play the game
+
 public class InfoScreen extends JFrame {
-    JButton startButton;
-    private GameScreen gameScreen;
+    JButton startButton; //creates the start button 
+    private GameScreen gameScreen; //creates the game screen 
 
     public InfoScreen() throws IOException {
         setLayout(null);
@@ -37,7 +39,7 @@ public class InfoScreen extends JFrame {
         // Set layout to null for manual positioning
         backgroundPanel.setLayout(null);
 
-        startButton = new JButton("CLICK HERE TO START!");
+        startButton = new JButton("CLICK HERE TO START!"); //lable the start button 
         Font diffFont = new Font("Georgia", Font.BOLD, 24);
         startButton.setFont(diffFont);
         Color startColor = new Color(60, 125, 64);
@@ -45,21 +47,21 @@ public class InfoScreen extends JFrame {
 
         int x = 425;
         int y = 490;
-        Dimension buttonSize = new Dimension(350, 175);
-        startButton.setLocation(x, y);
+        Dimension buttonSize = new Dimension(350, 175); //set the size of the button 
+        startButton.setLocation(x, y); //set the location of the button 
         startButton.setSize(buttonSize);
         startButton.setVisible(true);
 
         // Add button to background
-        backgroundPanel.add(startButton);
+        backgroundPanel.add(startButton); //add button to the pannel 
 
-        startButton.addActionListener(new ActionListener() {
+        startButton.addActionListener(new ActionListener() { //if the button gets pressed the game screen will be opened 
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    gameScreen = new GameScreen();
-                    startButton.setVisible(false);
-                    dispose();
+                    gameScreen = new GameScreen(); //opens the game screen window 
+                    startButton.setVisible(false); //makes the start button dissapear 
+                    dispose(); //closes the info screen and opens the game screen 
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
