@@ -8,7 +8,10 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
+//This method creates the start screen for the game 
+
 public class ParentGUI extends JFrame {
+  //creates the buttons on the start screen 
   private JButton startButton;
   private JButton infoButton;
   private GameScreen gameScreen;
@@ -51,18 +54,19 @@ public class ParentGUI extends JFrame {
     int x2 = 1020;
     int y2 = 590;
 
+    //set the location for both of the buttons and makes them visible on the start screen 
     startButton.setLocation(x, y);
     infoButton.setLocation(x2, y2);
     startButton.setVisible(true);
     infoButton.setVisible(true);
 
-    // Transparent buttons
+    // Makes the buttons transparent on the screen 
     startButton.setContentAreaFilled(false);
     startButton.setBorderPainted(false);
     infoButton.setContentAreaFilled(false);
     infoButton.setBorderPainted(false);
 
-    // Add to GUI
+    // Add the buttons to the GUI
     backgroundPanel.add(startButton);
     backgroundPanel.add(infoButton);
 
@@ -73,10 +77,10 @@ public class ParentGUI extends JFrame {
       @Override
       public void actionPerformed(ActionEvent e) {
         try {
-          gameScreen = new GameScreen();
-          startButton.setVisible(false);
+          gameScreen = new GameScreen(); //opens the game screen 
+          startButton.setVisible(false); 
           infoButton.setVisible(false);
-          // creates new window and closes old
+          // creates new window and closes start screen 
           dispose();
         } catch (IOException ex) {
           ex.printStackTrace();
@@ -88,10 +92,10 @@ public class ParentGUI extends JFrame {
       @Override
       public void actionPerformed(ActionEvent e) {
         try {
-          infoScreen = new InfoScreen();
+          infoScreen = new InfoScreen(); //opends the info screen 
           startButton.setVisible(true);
           infoButton.setVisible(false);
-          // creates new window and closes old
+          // creates new window and closes start screen 
           dispose();
         } catch (IOException ex) {
           ex.printStackTrace();
